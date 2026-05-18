@@ -3,318 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Reprog | Électronique & Reprogrammation Automobile</title>
+    <title>Auto Reprog</title>
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --primary: #3b82f6;
-            --primary-hover: #2563eb;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #10b981;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
         }
-
-        header {
-            background-color: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #334155;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 10rem 2rem 6rem;
-            text-align: center;
-            background: radial-gradient(circle at top, #1e3a8a 0%, var(--bg-dark) 70%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Services Section */
-        .services {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .section-title span {
-            color: var(--primary);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Contact & Form Section */
-        .contact-section {
-            background-color: #111827;
-            padding: 5rem 2rem;
-        }
-
-        .contact-container {
+        .container {
             max-width: 600px;
             margin: 0 auto;
         }
-
+        h1 {
+            text-align: center;
+            color: #00bcd4;
+        }
+        .services {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 15px;
         }
-
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-            font-size: 0.9rem;
+            margin-bottom: 5px;
         }
-
         .form-control {
             width: 100%;
-            padding: 0.75rem 1rem;
-            background-color: var(--bg-dark);
-            border: 1px solid #334155;
-            border-radius: 6px;
-            color: white;
-            font-size: 1rem;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+            box-sizing: border-box;
         }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
+        .btn {
+            background-color: #00bcd4;
+            color: #000;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
         }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #334155;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
+        .btn:hover {
+            background-color: #008c9e;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">AUTO<span>REPROG</span></div>
-            <nav class="nav-links">
-                <a href="#services">Prestations</a>
-                <a href="#devis">Demande de Devis</a>
-            </nav>
+    <div class="container">
+        <h1>Auto Reprog</h1>
+        
+        <div class="services">
+            <p><strong>Diagnostic & Reprogrammation Calculateur</strong></p>
+            <p>Analyse de pannes, clonage d'ECU et optimisation électronique automobile.</p>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>L'Électronique Automobile sur Mesure</h1>
-            <p>Diagnostic avancé, reprogrammation moteur, clonage de calculateurs et résolution de pannes électriques complexes pour professionnels et particuliers.</p>
-            <a href="#devis" class="btn btn-primary">Demander un devis technique</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2 class="section-title">Nos <span>Expertises</span></h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Diagnostic Avancé & Codage</h3>
-                <p>Lecture approfondie des codes défauts, analyse en temps réel des réseaux multiplexés (CAN), programmation et appairage de modules d'origine.</p>
-            </div>
-            <div class="card">
-                <h3>Optimisation Logicielle</h3>
-                <p>Développement de cartographies sur-mesure (Stage 1), calibrage moteur et solutions logicielles spécifiques pour la gestion thermique et antipollution.</p>
-            </div>
-            <div class="card">
-                <h3>Clonage & Récupération d'ECU</h3>
-                <p>Sauvegarde complète des données, transfert d'antidémarrage (Immo Off) et reconstruction de mémoires Flash/EEPROM corrompues suite à une panne ou un plantage.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="devis" class="contact-section">
-        <div class="contact-container">
-            <h2 class="section-title" style="margin-bottom: 1.5rem;">Formulaire de <span>Contact</span></h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2.5rem;">Renseignez les détails de votre véhicule pour une prise en charge rapide.</p>
-            
+        <section id="devis">
+            <h2>Formulaire de Contact</h2>
+            <br>
             <form action="https://api.web3forms.com/submit" method="POST">
-                <!-- CLÉ D'ACCÈS WEB3FORMS -->
                 <input type="hidden" name="access_key" value="5812357c-d439-4a5a-86a8-f2a4ee054a09">
                 
-                <!-- Redirection après envoi (Optionnel : renvoie le client sur ton site) -->
-                <input type="hidden" name="from_name" value="Auto Reprog - Nouveau Client">
-                <input type="hidden" name="subject" value="Nouvelle demande technique de calculateur / reprogrammation">
+                <input type="hidden" name="from_name" value="Auto Reprog">
+                <input type="hidden" name="subject" value="Nouvelle demande client">
 
                 <div class="form-group">
-                    <label for="name">Nom ou Nom du Garage</label>
-                    <input type="text" name="Nom/Garage" id="name" class="form-control" placeholder="Ex: Garage Automobile X" required>
+                    <label>Nom ou Garage :</label>
+                    <input type="text" name="Nom_Garage" class="form-control" placeholder="Ex: Garage X" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">Téléphone</label>
-                    <input type="tel" name="Telephone" id="phone" class="form-control" placeholder="Votre numéro" required>
+                    <label>Téléphone :</label>
+                    <input type="tel" name="Telephone" class="form-control" placeholder="Votre numéro" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="vehicle">Véhicule (Marque, Modèle, Année, Motorisation)</label>
-                    <input type="text" name="Vehicule" id="vehicle" class="form-control" placeholder="Ex: Golf 7 2.0 TDI 150ch - 2018" required>
+                    <label>Véhicule :</label>
+                    <input type="text" name="Vehicule" class="form-control" placeholder="Ex: Golf 7 2.0 TDI" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="ecu">Type de Calculateur / Réf (Si connu)</label>
-                    <input type="text" name="Type_Calculateur" id="ecu" class="form-control" placeholder="Ex: Bosch EDC17C64, Delphi DCM3.7">
+                    <label>Calculateur (Si connu) :</label>
+                    <input type="text" name="Type_Calculateur" class="form-control" placeholder="Ex: Bosch EDC17C64, Delphi DCM3.7">
                 </div>
                 
                 <div class="form-group">
-                    <label for="service">Prestation demandée</label>
-                    <select name="Prestation_Demandee" id="service" class="form-control" required>
-                        <option value="">Sélectionnez une option</option>
-                        <option value="Diagnostic / Codage">Diagnostic / Codage de module</option>
-                        <option value="Reprogrammation / Optimisation">Reprogrammation / Optimisation</option>
-                        <option value="Clonage ECU / Récupération Flash">Clonage ECU / Récupération Flash</option>
-                        <option value="Autre demande">Autre demande spécifique</option>
+                    <label>Prestation :</label>
+                    <select name="Prestation" class="form-control" required>
+                        <option value="">-- Choisir --</option>
+                        <option value="Diagnostic / Codage">Diagnostic / Codage</option>
+                        <option value="Reprogrammation">Reprogrammation</option>
+                        <option value="Clonage ECU">Clonage ECU / Récupération</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Description du problème ou de la demande</label>
-                    <textarea name="Details_Message" id="message" class="form-control" rows="4" placeholder="Détaillez votre besoin ici..."></textarea>
+                    <label>Message / Codes défauts :</label>
+                    <textarea name="Message" class="form-control" rows="4" placeholder="Détails de la demande..."></textarea>
                 </div>
                 
-                <!-- Protection contre les robots/spams -->
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <input type="checkbox" name="botcheck" style="display: none;">
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer la demande technique</button>
+                <button type="submit" class="btn">Envoyer</button>
             </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Auto Reprog. Tous droits réservés. Matériel de diagnostic officiel et sécurisé.</p>
-    </footer>
+        </section>
+    </div>
 
 </body>
 </html>
