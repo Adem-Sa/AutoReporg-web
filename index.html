@@ -214,7 +214,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <header>
         <div class="nav-container">
             <div class="logo">AUTO<span>REPROG</span></div>
@@ -225,7 +224,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>L'Électronique Automobile sur Mesure</h1>
@@ -234,7 +232,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services">
         <h2 class="section-title">Nos <span>Expertises</span></h2>
         <div class="grid">
@@ -253,49 +250,54 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
     <section id="devis" class="contact-section">
         <div class="contact-container">
             <h2 class="section-title" style="margin-bottom: 1.5rem;">Formulaire de <span>Contact</span></h2>
             <p style="text-align: center; color: var(--text-muted); margin-bottom: 2.5rem;">Renseignez les détails de votre véhicule pour une prise en charge rapide.</p>
             
-            <form onsubmit="event.preventDefault(); alert('Demande envoyée avec succès !');">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="5812357c-d439-4a5a-86a8-f2a4ee054a09">
+                <input type="hidden" name="from_name" value="Auto Reprog">
+                <input type="hidden" name="subject" value="Nouvelle Demande de Devis Technique">
+
                 <div class="form-group">
                     <label for="name">Nom ou Nom du Garage</label>
-                    <input type="text" id="name" class="form-control" placeholder="Ex: Garage Automobile X" required>
+                    <input type="text" name="Nom_Garage" id="name" class="form-control" placeholder="Ex: Garage Automobile X" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="Votre numéro" required>
+                    <input type="tel" name="Telephone" id="phone" class="form-control" placeholder="Votre numéro" required>
                 </div>
                 <div class="form-group">
                     <label for="vehicle">Véhicule (Marque, Modèle, Année, Motorisation)</label>
-                    <input type="text" id="vehicle" class="form-control" placeholder="Ex: Golf 7 2.0 TDI 150ch - 2018" required>
+                    <input type="text" name="Vehicule" id="vehicle" class="form-control" placeholder="Ex: Golf 7 2.0 TDI 150ch - 2018" required>
                 </div>
                 <div class="form-group">
                     <label for="ecu">Type de Calculateur / Réf (Si connu)</label>
-                    <input type="text" id="ecu" class="form-control" placeholder="Ex: Bosch EDC17C64, Delphi DCM3.7">
+                    <input type="text" name="Type_Calculateur" id="ecu" class="form-control" placeholder="Ex: Bosch EDC17C64, Delphi DCM3.7">
                 </div>
                 <div class="form-group">
                     <label for="service">Prestation demandée</label>
-                    <select id="service" class="form-control" required>
+                    <select name="Prestation_Demandee" id="service" class="form-control" required>
                         <option value="">Sélectionnez une option</option>
-                        <option value="diag">Diagnostic / Codage de module</option>
-                        <option value="reprog">Reprogrammation / Optimisation</option>
-                        <option value="clonage">Clonage ECU / Récupération Flash</option>
-                        <option value="autre">Autre demande spécifique</option>
+                        <option value="Diagnostic / Codage de module">Diagnostic / Codage de module</option>
+                        <option value="Reprogrammation / Optimisation">Reprogrammation / Optimisation</option>
+                        <option value="Clonage ECU / Récupération Flash">Clonage ECU / Récupération Flash</option>
+                        <option value="Autre demande spécifique">Autre demande spécifique</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="message">Description du problème ou de la demande</label>
-                    <textarea id="message" class="form-control" rows="4" placeholder="Détaillez votre besoin ici..."></textarea>
+                    <textarea name="Details_Message" id="message" class="form-control" rows="4" placeholder="Détaillez votre besoin ici..."></textarea>
                 </div>
+                
+                <input type="checkbox" name="botcheck" style="display: none;">
+
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer la demande technique</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Auto Reprog. Tous droits réservés. Matériel de diagnostic officiel et sécurisé.</p>
     </footer>
